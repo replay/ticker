@@ -1,3 +1,6 @@
+#ifndef TICKER_H_
+#define TICKER_H_
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,3 +20,5 @@ class Ticker
 	public:
 		void run(vector<string>);
 };
+
+#endif // TICKER_H_

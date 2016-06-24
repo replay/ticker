@@ -16,4 +16,4 @@ ${LINKING}
 g++ -I . -fPIC -c -o gdax_provider.o gdax_provider.cc
 g++ -shared -Wl,-soname,gdax_provider.so -o gdax_provider.so gdax_provider.o  -lc
 
-rm *.gcda *.gcno *.o *.gch
+rm *.gcno *.o *.gch

@@ -1,3 +1,6 @@
+#ifndef GDAX_PROVIDER_H_
+#define GDAX_PROVIDER_H_
+
 #include <data_provider.h>
 #include <string>
 
@@ -21,3 +24,5 @@ extern "C"
         delete reinterpret_cast<GdaxProvider*>(obj);
     }
 }
+
+#endif // GDAX_PROVIDER_H_
