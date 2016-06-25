@@ -8,7 +8,7 @@ int Ticker::_load_data_provider(string provider_name)
 	void* library;
 	void* (*loader)();
 	void* loader_vp;
-	std::stringstream filename;
+	stringstream filename;
 	DataProvider *provider;
 
 	filename << "./" << provider_name << "_provider.so";

@@ -2,6 +2,7 @@
 #define TICKER_H_
 
 #include <sstream>
+#include <stdio.h>
 #include <dlfcn.h>
 #include <iostream>
 #include <vector>
