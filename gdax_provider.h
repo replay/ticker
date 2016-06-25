@@ -2,6 +2,7 @@
 #define GDAX_PROVIDER_H_
 
 #include <string>
+#include <iostream>
 
 #include <curl/curl.h>
 #include <boost/format.hpp>
@@ -15,22 +16,11 @@ using namespace std;
 
 class GdaxProvider: public DataProvider {
 	public:
+		GdaxProvider(void (*del)(void*));
+		~GdaxProvider();
 		string get_symbol();
 		string get_name();
 		int get_rate(string, string);
 };
-
-extern "C"
-{
-    void* load_data_provider(void)
-    {
-        return reinterpret_cast<void*>(new GdaxProvider);
-    }
-
-    void delete_data_provider(void* obj)
-    {
-        delete reinterpret_cast<GdaxProvider*>(obj);
-    }
-}
 
 #endif // GDAX_PROVIDER_H_

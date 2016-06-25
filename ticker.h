@@ -2,7 +2,6 @@
 #define TICKER_H_
 
 #include <sstream>
-#include <stdio.h>
 #include <dlfcn.h>
 #include <iostream>
 #include <vector>
@@ -22,6 +21,7 @@ class Ticker
 
 	public:
 		void run(vector<string>);
+		~Ticker();
 };
 
 #endif // TICKER_H_
