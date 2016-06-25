@@ -1,6 +1,8 @@
 #ifndef TICKER_H_
 #define TICKER_H_
 
+#include <sstream>
+#include <dlfcn.h>
 #include <iostream>
 #include <vector>
 #include <string>

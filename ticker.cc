@@ -1,26 +1,18 @@
 #include <boost/format.hpp>
 #include <data_provider.h>
-#include <dlfcn.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <ticker.h>
 
 
 int Ticker::_load_data_provider(string provider_name)
 {
-	char* filename;
 	void* library;
-	void* func;
-	void* provider_vp;
 	void* (*loader)();
 	void* loader_vp;
+	std::stringstream filename;
 	DataProvider *provider;
 
-	filename = (char *) malloc(FILENAME_MAX_LENGTH);
-	snprintf(filename, FILENAME_MAX_LENGTH, "./%s_provider.so",
-		 provider_name.c_str());
-	cout << filename << "\n";
-	library = dlopen(filename, RTLD_LAZY);
+	filename << "./" << provider_name << "_provider.so";
+	library = dlopen(filename.str().c_str(), RTLD_LAZY);
 	if (!library) {
 		fprintf (stderr, "%s\n", dlerror());
 		exit(1);
@@ -44,4 +36,7 @@ void Ticker::run(vector<string> data_providers)
 {
 	for (auto i = data_providers.begin(); i != data_providers.end(); ++i)
 		this->_load_data_provider(*i);
+
+	DataProvider *dp = this->_data_providers.at(0);
+	dp->get_rate("USD", "ETH");
 }
