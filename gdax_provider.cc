@@ -1,7 +1,13 @@
 #include <gdax_provider.h>
 
 GdaxProvider::GdaxProvider(void (*del)(void*))
-	: DataProvider(del){};
+	: DataProvider(del)
+{
+}
+
+GdaxProvider::~GdaxProvider()
+{
+}
 
 string GdaxProvider::get_name()
 {

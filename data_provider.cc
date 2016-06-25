@@ -6,6 +6,10 @@ DataProvider::DataProvider(void (*del)(void*))
 {
 }
 
+DataProvider::~DataProvider()
+{
+}
+
 void DataProvider::del()
 {
 	(*_delete)(reinterpret_cast<void*>(this));
